@@ -5,8 +5,8 @@ const WOKCommands = require('wokcommands');
 
 const mongo = require('./mongo');
 const { token, colors, MongoDB, IDs, emoji } = require('./config.json');
-const antiAd = require('./features/anti-link');
-const antiInvite = require('./features/anti-invite');
+const antiAd = require('./Features/anti-link');
+const antiInvite = require('./Features/anti-invite');
 
 
 const client = new Discord.Client({ partials: ['MESSAGE', 'CHANNEL', 'REACTION'] });
@@ -40,8 +40,8 @@ client.on('ready', async () => {
 	console.log(chalk.green(`Logged in as ${client.user.username}. Ready on ${client.guilds.cache.size} servers, for a total of ${client.users.cache.size} users`));
 
 	new WOKCommands(client, {
-		commandsDir: 'commands',
-		featuresDir: 'features',
+		commandsDir: 'Commands',
+		featuresDir: 'Features',
 		messagesPath: 'messages.json',
 		showWarns: true,
 		del: -1,
