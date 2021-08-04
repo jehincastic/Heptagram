@@ -3,6 +3,7 @@ const chalk = require('chalk');
 const distube = require('distube');
 const WOKCommands = require('wokcommands');
 
+const mongo = require('./mongo');
 const { token, colors, MongoDB, IDs, emoji } = require('./config.json');
 const antiAd = require('./features/anti-link');
 const antiInvite = require('./features/anti-invite');
@@ -24,6 +25,15 @@ client.on('ready', async () => {
 
 	client.user.setStatus('online');
 	client.user.setActivity(`${client.guilds.cache.size} servers!`, { type: 'WATCHING' });
+
+	await mongo().then(mongoose => {
+		try {
+			console.log(chalk.green('Connected to Heptagram MongoDB database!'));
+		}
+		finally {
+			mongoose.connection.close();
+		}
+	});
 
 
 	console.log(chalk.magenta('Starting Heptagram\nNode version: ' + process.version + '\nDiscord.js version: ' + Discord.version));
@@ -57,7 +67,7 @@ client.on('ready', async () => {
 			},
 			{
 				name: 'Development',
-				emoji: '🚧',
+				emoji: '⭕️',
 				hidden: true,
 			},
 			{
