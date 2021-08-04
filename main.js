@@ -3,7 +3,7 @@ const chalk = require('chalk');
 const distube = require('distube');
 const WOKCommands = require('wokcommands');
 
-const mongo = require('./mongo');
+const mongo = require('./Utils/mongo');
 const { token, colors, MongoDB, IDs, emoji } = require('./config.json');
 const antiAd = require('./Features/anti-link');
 const antiInvite = require('./Features/anti-invite');

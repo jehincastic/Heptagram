@@ -1,8 +1,14 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
+const reqString = {
+	type: String,
+	required: true,
+};
+
+
 const serverConfigSchema = new Schema({
-	id_: String,
+	guildId: reqString,
 	userRoleId:  String,
 	mutedRoleId: String,
 	staffRoleId: String,

@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const { MongoDB } = require('./config.json');
+const { MongoDB } = require('../config.json');
 
 module.exports = async () => {
 	await mongoose.connect(MongoDB, {
