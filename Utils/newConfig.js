@@ -5,10 +5,10 @@ const serverConfigSchema = require('../Schemas/serverConfigSchema');
 module.exports = (client) => {
 	client.on('guildCreate', async (guild) => {
 
-		await mongo().then(mongoose => {
+		await mongo().then(mongoose => async () => {
 
 			try {
-				new serverConfigSchema({
+				await new serverConfigSchema({
 					guildId: guild.id,
 					userRoleId:  String,
 					mutedRoleId: String,
